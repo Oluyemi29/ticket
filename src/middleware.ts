@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from "next/server";
 export async function middleware(request: NextRequest) {
   // const token = req
   const { pathname } = request.nextUrl;
-
   const token = await getToken({ req: request });
   if (pathname.startsWith("/user")) {
     if (!token || !token.user || !token.user.id) {

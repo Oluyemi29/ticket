@@ -19,9 +19,24 @@ export const metadata: Metadata = {
     default: "Ticket Management System",
     template: "%s | Ticket Management System",
   },
-  description:
-    "Ticket Management System is a system that help user to create a Ticket for admin to attended to it",
 
+  metadataBase: new URL("https://ticket-olive-xi.vercel.app"),
+  description:
+    "A smart and secure Ticket Management Software built with Next.js, Node.js, and PostgreSQL. This app supports seamless ticket routing based on category selection, and offers multi-admin access to manage categorized tickets efficiently. Featuring robust authentication, real-time session management, and a modern UI powered by Tailwind CSS, the system ensures streamlined issue tracking and resolution in one unified platform.",
+  openGraph: {
+    title: "Ticket Management System",
+    description:
+      "A smart and secure Ticket Management Software built with Next.js, Node.js, and PostgreSQL. This app supports seamless ticket routing based on category selection, and offers multi-admin access to manage categorized tickets efficiently. Featuring robust authentication, real-time session management, and a modern UI powered by Tailwind CSS, the system ensures streamlined issue tracking and resolution in one unified platform.",
+    url: "https://ticket-olive-xi.vercel.app",
+    siteName: "Ticket Management System",
+    images: {
+      url: "/ticketreg.PNG",
+      width: 1200,
+      height: 630,
+      alt: "Ticket Management System",
+    },
+    type: "website",
+  },
 };
 
 export default function RootLayout({
