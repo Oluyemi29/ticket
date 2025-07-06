@@ -135,7 +135,7 @@ const Dashboard = ({ category, myticket }: CategoryProps) => {
               </CardHeader>
               <CardBody className="text-maindeep">
                 {MyTicket.length < 1 ? (
-                  <div className="mt-20">
+                  <div className="my-10 text-center">
                     <h1 className="text-maindeep font-semibold">
                       You have no ticket currently
                     </h1>
