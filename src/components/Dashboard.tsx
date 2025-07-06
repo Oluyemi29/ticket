@@ -54,6 +54,9 @@ const Dashboard = ({ category, myticket }: CategoryProps) => {
       label: eachCategory.name,
     };
   });
+  const MyTicket = myticket.filter((eachTicket) => {
+    return eachTicket.userId === Number(session?.user.id as number);
+  });
   const formSchema = z.object({
     title: z
       .string()
@@ -131,7 +134,7 @@ const Dashboard = ({ category, myticket }: CategoryProps) => {
                 </h1>
               </CardHeader>
               <CardBody className="text-maindeep">
-                {myticket.length < 1 ? (
+                {MyTicket.length < 1 ? (
                   <div className="mt-20">
                     <h1 className="text-maindeep font-semibold">
                       You have no ticket currently
@@ -139,7 +142,7 @@ const Dashboard = ({ category, myticket }: CategoryProps) => {
                   </div>
                 ) : (
                   <div className="flex flex-col gap-3 w-full">
-                    {myticket.map((eachTicket, index) => {
+                    {MyTicket.map((eachTicket, index) => {
                       return (
                         <div
                           className="w-full rounded-md p-2 odd:bg-slate-200 even:bg-transparent text-[0.9rem] flex flex-col md:flex-row gap-5"

@@ -11,14 +11,9 @@ export const metadata: Metadata = {
 
 const page = async () => {
   noStore();
-  const session =await getServerSession()
-  const userId = session?.user.id as number
   const [category,myticket] = await Promise.all([
     await prisma.category.findMany(),
     await prisma.ticket.findMany({
-      where:{
-        userId
-      },
       include:{
         Category:true
       }
