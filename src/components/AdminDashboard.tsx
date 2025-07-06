@@ -216,7 +216,7 @@ const AdminDashboard = ({ category, myticket }: CategoryProps) => {
                         >
                           <p className="md:w-2/12">{eachTicket.title}</p>
                           <div className="md:w-6/12">
-                            <p className="h-20 overflow-y-auto">
+                            <p className="h-20 no-scrollbar overflow-y-auto">
                               {eachTicket.description}
                             </p>
                           </div>
