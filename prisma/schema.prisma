@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String?
+  role      Role     @default(User)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Ticket    Ticket[]
+}
+
+model Ticket {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255)
+  description String
+  status      Status   @default(No_Status)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  Category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId  Int
+  User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int
+}
+
+model Admin {
+  id         Int      @id @default(autoincrement())
+  email      String
+  password   String?
+  Category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId Int      @unique
+  role       Role     @default(Admin)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Ticket    Ticket[]
+  Admin     Admin[]
+}
+
+enum Status {
+  No_Status
+  Pending
+  Delivered
+  Resolved
+  Denied
+  Rejected
+}
+
+enum Role {
+  User
+  Admin
+}
