@@ -1,7 +1,6 @@
 import Dashboard from "@/components/Dashboard";
 import { prisma } from "@/lib/prisma";
 import { Metadata } from "next";
-import { getServerSession } from "next-auth";
 import { unstable_noStore as noStore } from "next/cache";
 import React from "react";
 
