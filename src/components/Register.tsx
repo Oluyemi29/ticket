@@ -127,8 +127,8 @@ const Register = () => {
               )}
             </div>
           </form>
-          <p className="text-[0.7rem] mt-3 text-end text-maindeep">
-            Already have an accont?{" "}
+          <p className="text-[0.9rem] mt-3 text-end text-maindeep">
+            Already have an account?{" "}
             <Link
               className="underline underline-offset-2 italic font-semibold"
               href={"/login"}

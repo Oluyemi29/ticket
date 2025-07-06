@@ -132,8 +132,8 @@ const Login = () => {
               )}
             </div>
           </form>
-          <p className="text-[0.7rem] text-end text-maindeep">
-            Dont have an accont?{" "}
+          <p className="text-[0.9rem] mt-3 text-end text-maindeep">
+            Dont have an account?{" "}
             <Link
               className="underline underline-offset-2 mt-3 italic font-semibold"
               href={"/"}

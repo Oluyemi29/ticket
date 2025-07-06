@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import { MdEmail } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import Link from "next/link";
 import { TbLockPassword } from "react-icons/tb";
 import { signIn } from "next-auth/react";
 
@@ -167,15 +166,6 @@ const AdminLogin = ({ category }: CategoryProps) => {
               )}
             </div>
           </form>
-          <p className="text-[0.7rem] text-end text-maindeep">
-            Dont have an accont?{" "}
-            <Link
-              className="underline underline-offset-2 mt-3 italic font-semibold"
-              href={"/"}
-            >
-              Register
-            </Link>
-          </p>
         </div>
       </div>
     </div>
